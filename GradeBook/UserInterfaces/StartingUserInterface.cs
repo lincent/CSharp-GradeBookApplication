@@ -40,18 +40,19 @@ namespace GradeBook.UserInterfaces
             }
             var name = parts[1];
             var type = parts[2].ToLower();
-            BaseGradeBook gradebook;
+            BaseGradeBook gradeBook;
             if (type == "standard")
             {
-                gradebook = new StandardGradeBook(name);
+                gradeBook = new StandardGradeBook(name);
             }
             else if (type == "ranked")
             {
-                gradebook = new RankedGradeBook(name);
+                gradeBook = new RankedGradeBook(name);
             }
             else
             {
                 Console.WriteLine($"{type} Command not valid, Create requires a name and type of gradebook.");
+                return;
             }
             Console.WriteLine("Created gradebook {0}.", name);
             GradeBookUserInterface.CommandLoop(gradeBook);
